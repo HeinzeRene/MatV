@@ -4,7 +4,12 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
   $( function() {
-    $( "#datepicker" ).datepicker();
+    $( "#datepickerLeihAnfang" ).datepicker();
+  } );
+  </script>
+	<script>
+  $( function() {
+    $( "#datepickerLeihEnde" ).datepicker();
   } );
   </script>
 
@@ -86,7 +91,12 @@
 
 	<div class="form-group">
     Beginn Leihzeitraum:<input class="form-control" cam-variable-type="String"
-     cam-variable-name="leihBeginn" name="leihBeginn" id="datepicker"/>
+     cam-variable-name="leihBeginn" name="leihBeginn" id="datepickerLeihAnfang"/>
    </div>
+
+	 <div class="form-group">
+     Ende Leihzeitraum:<input class="form-control" cam-variable-type="String"
+      cam-variable-name="leihEnde" name="leihEnde" id="datepickerLeihEnde"/>
+    </div>
 
 </form>
