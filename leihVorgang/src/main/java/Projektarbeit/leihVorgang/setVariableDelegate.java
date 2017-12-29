@@ -84,6 +84,17 @@ public class setVariableDelegate implements JavaDelegate {
 	public String getWohnort() {
 		return wohnort;
 	}
+	
+	public Date getAnfangausleihe() {
+		return anfangausleihe;
+	}
+	
+	public Date getEndeausleihe()
+	{
+		return end
+				
+	}
+	
 	private Integer setIdPerson(Integer idPerson) {
 		idPerson =  setIdPersonConvert ((Math.random()*9999)+10000);
 		return  idPerson;
