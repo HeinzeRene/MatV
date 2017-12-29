@@ -82,5 +82,6 @@ public class setVariableDelegate implements JavaDelegate {
 		idPerson =  setIdPersonConvert ((Math.random()*9999)+10000);
 		return  idPerson;
 	}
-
+	
+	
 }	
