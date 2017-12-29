@@ -1,13 +1,16 @@
 package Projektarbeit.leihVorgang;
 
+import java.util.Date;
+
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
 import org.camunda.bpm.engine.runtime.Execution;
 
 public class setVariableDelegate implements JavaDelegate {
 
-	private Integer idPerson;
+	private Integer idPerson, leihscheinNummer;
 	private String anrede, vorname, nachname, matrikelnummer, adresse, plz, wohnort;
+	private Date anfangausleihe, endeausleihe;
 
 	/* (non-Javadoc)
 	 * @see org.camunda.bpm.engine.delegate.JavaDelegate#execute(org.camunda.bpm.engine.delegate.DelegateExecution)
@@ -21,6 +24,7 @@ public class setVariableDelegate implements JavaDelegate {
 			idPerson.setIdPerson();
 		}
 		
+		
 		anrede = (String) execution.getVariable("anrede");
 		vorname = (String) execution.getVariable("vorname");
 		nachname = (String) execution.getVariable("nachname");
@@ -28,7 +32,9 @@ public class setVariableDelegate implements JavaDelegate {
 		adresse = (String) execution.getVariable("adresse");
 		plz = (String) execution.getVariable("plz");
 		wohnort = (String) execution.getVariable("wohnort");
-		
+		anfangausleihe = (Date) execution.getVariable("anfangausleihe");
+		endeausleihe = (Date) execution.getVariable("endeausleihe");
+		leihscheinNummer = (Integer) execution.getVariable("leihscheinNummer");
 	}
 
 	public String getVorname() {

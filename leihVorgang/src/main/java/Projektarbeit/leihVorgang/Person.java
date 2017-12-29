@@ -16,7 +16,4 @@ public class Person {
 		plz = setVar.getPlz();
 		wohnort = setVar.getWohnort();
 	}
-	
-	
-	
 }

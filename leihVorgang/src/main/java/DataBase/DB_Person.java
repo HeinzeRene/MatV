@@ -11,7 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.sun.beans.finder.FieldFinder;
 
-public class DB_Person implements IDataBase{
+public abstract class DB_Person implements IDataBase{
 
 	private static final Logger L = LoggerFactory.getLogger(DB_Person.class);
 	
