@@ -1,4 +1,4 @@
-package Projektarbeit.leihVorgang;
+package Projektarbeit.MailVersenden;
 
 import org.apache.commons.mail.Email;
 import org.apache.commons.mail.EmailException;
@@ -7,7 +7,7 @@ import org.apache.commons.mail.SimpleEmail;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
 
-public class MailAbsageMangelsBestand implements JavaDelegate {
+public class MailFehlendeInfo implements JavaDelegate {
 
 	public void execute(DelegateExecution execution) throws Exception {
 
@@ -17,18 +17,15 @@ public class MailAbsageMangelsBestand implements JavaDelegate {
 		String taetigkeit = (String) execution.getVariable("taetigkeit");
 		String email = (String) execution.getVariable("email");
 
-		/*
-		 * Mail umfasst eine vollständige Absage. Wenn einzelne Artikel nicht vorhanden sind 
-		 * muss der Text mit entsprechenden Variablen umgeschrieben werden
-		 */
-		String mailtext = "Sehr geehrte/er " + anrede + " " + vorname + " " + nachname + ",\n" 
-		+ "\nvielen Dank für Ihre Leihanfrage an die Initiative Studimeile."
-		+ "\nWir sind eine anerkannte studentische Initiative, welche Aufgrund von finanzieller Unterstützung seitens der Studierendenschaft, dieses Angebot zur Verfügung stellt"		
-		+ "\nLeider müssen wir Ihnen mitteilen, dass die von Ihnen gewünschten Artikel sind nicht vollstädig im Bestand der Initiative."
-		+ "\nSofern Sie weiterhin einzelne Artikel benötigen, welche im Bestand sind, stellen Sie bitte eine neue Anfrage auf genau diese Artikel um die Bedarfsdeckung zu prüfen."
+		String mailtext = "Sehr geehrte/er " + anrede + " " + vorname + " " + nachname + ",\n" + "\n,vielen Dank für Ihre Leihanfrage."
+		+ "\nLeider müssen wir Ihnen mitteilen, dass die angegebenen Informationen nicht ausreichen."
+		+ "\nFür eine Bearbeitung der Anfrage füllen Sie bitte alle vorgegebeben Felder wahrheitsgemäß und vollständig aus."		
+		+ "\nSollte Sie direkte Fragen zum Verfahren haben können Sie gerne eine E-MAil senden an:" 
+		+ "\nini-studimeile@students-htw.de"
+		+ "\nDie Anfrage wird hiermit geschlossen. Stellen Sie für eine Leihe bitte eine neue Anfrage mit den aufgeführten Inhalten."
 		+ "\n\nMit freundlichen Grüßen,\n die Initiative Studimeile";
 
-		String subject = "Ihre Leihanfrage - Absage mangels Bestand";
+		String subject = "Ihre Leihanfrage - Absage mangels Informationen";
 		sendEmail(mailtext, subject, email);
 	}
 
@@ -36,7 +33,7 @@ public class MailAbsageMangelsBestand implements JavaDelegate {
 		//https://anleitungen.rz.htw-berlin.de/de/email/e-mail_programm/
 
 		/*
-		 * Host und Mail anpassen	
+		 * Host und Mail anpassen!!!
 		 */
 		MultiPartEmail email = new MultiPartEmail();
 		email.setCharset("utf-8");

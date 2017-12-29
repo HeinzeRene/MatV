@@ -1,4 +1,4 @@
-package Projektarbeit.leihVorgang;
+package Projektarbeit.MailVersenden;
 import java.io.InputStream;
 import javax.activation.DataHandler;
 import javax.mail.internet.MimeBodyPart;
