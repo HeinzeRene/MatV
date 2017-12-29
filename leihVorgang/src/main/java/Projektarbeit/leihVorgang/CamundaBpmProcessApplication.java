@@ -14,7 +14,7 @@ import org.camunda.bpm.engine.ProcessEngine;
 @ProcessApplication
 public class CamundaBpmProcessApplication extends ServletProcessApplication {
 
-  private static final String PROCESS_DEFINITION_KEY = "mitarbeiterEinstellung ";
+  private static final String PROCESS_DEFINITION_KEY = "leihVorgang";
 
   /**
    * In a @PostDeploy Hook you can interact with the process engine and access 
