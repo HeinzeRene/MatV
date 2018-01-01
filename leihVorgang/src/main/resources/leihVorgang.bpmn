@@ -58,6 +58,12 @@
       <bpmn:outgoing>SequenceFlow_0vh7jjh</bpmn:outgoing>
     </bpmn:exclusiveGateway>
     <bpmn:startEvent id="StartEvent_1" name="Bedarfsmeldung per Formular" camunda:formKey="embedded:app:forms/datenErf.html">
+      <bpmn:extensionElements>
+        <camunda:executionListener class="" event="start">
+          <camunda:formField id="FormField_2rd5r17" />
+          <camunda:formField id="FormField_2icutbd" />
+        </camunda:executionListener>
+      </bpmn:extensionElements>
       <bpmn:outgoing>SequenceFlow_1ib3r16</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:userTask id="Task_0ve96m7" name="Bestands-prüfung Leihmaterial">
