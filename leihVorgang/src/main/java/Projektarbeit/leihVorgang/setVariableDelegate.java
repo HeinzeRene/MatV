@@ -8,7 +8,7 @@ import org.camunda.bpm.engine.runtime.Execution;
 
 public class setVariableDelegate implements JavaDelegate {
 
-	private Integer idPerson, leihscheinNummer;
+	private int idPerson, leihscheinNummer;
 	private String anrede, vorname, nachname, matrikelnummer, adresse, plz, wohnort;
 	private Date anfangausleihe, endeausleihe;
 
@@ -19,11 +19,10 @@ public class setVariableDelegate implements JavaDelegate {
 	public void execute(DelegateExecution execution) throws Exception {
 		// TODO Auto-generated method stub
 		
-		idPerson = (Integer) execution.getVariable("idPerson");
-		if(idPerson.equals("")) {
-			idPerson.setIdPerson();
+		idPerson = (int) execution.getVariable("idPerson");
+		if(idPerson == 0 ) {
+		  generateIdPerson();
 		}
-		
 		
 		anrede = (String) execution.getVariable("anrede");
 		vorname = (String) execution.getVariable("vorname");
@@ -34,7 +33,7 @@ public class setVariableDelegate implements JavaDelegate {
 		wohnort = (String) execution.getVariable("wohnort");
 		anfangausleihe = (Date) execution.getVariable("anfangausleihe");
 		endeausleihe = (Date) execution.getVariable("endeausleihe");
-		leihscheinNummer = (Integer) execution.getVariable("leihscheinNummer");
+		leihscheinNummer = (int) execution.getVariable("leihscheinNummer");
 	}
 
 	public String getVorname() {
@@ -89,15 +88,12 @@ public class setVariableDelegate implements JavaDelegate {
 		return anfangausleihe;
 	}
 	
-	public Date getEndeausleihe()
-	{
-		return end
-				
+	public Date getEndeausleihe(){
+		return endeausleihe;
 	}
 	
-	private Integer setIdPerson(Integer idPerson) {
-		idPerson =  setIdPersonConvert ((Math.random()*9999)+10000);
-		return  idPerson;
+	private void generateIdPerson() {
+		idPerson = (int) Math.random()*9999+10000;
 	}
 	
 	

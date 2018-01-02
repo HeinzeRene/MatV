@@ -18,8 +18,7 @@ public interface IDataBase {
 	/*
 	 * Methode zum Löschen von Kundedaten
 	 */
-	void deletePerson(int idPerson, String anrede, String vorname, String nachname, String matrikelnummer, String adresse, String plz,
-			String wohnort) throws DataFormatException;
+	void deletePerson(int idPerson) throws DataFormatException;
 
 	/*
 	 * Methode zum Einlesen eines Leihscheines
@@ -34,6 +33,6 @@ public interface IDataBase {
 	/*
 	 * Methode zum Löschen eines Leihscheins
 	 */
-	void deleteLeihschein (int leihscheinNummer, Date anfangausleihe, Date endeausleihe) throws DataFormatException;
+	void deleteLeihschein (int leihscheinNummer) throws DataFormatException;
 	
 }

@@ -69,8 +69,7 @@ public abstract class DB_Person implements IDataBase{
 	}
 
 	@Override
-	public void deletePerson(int idPerson, String anrede, String vorname, String nachname, String matrikelnummer, String adresse,
-			String plz, String wohnort) throws DataFormatException {
+	public void deletePerson(int idPerson) throws DataFormatException {
 		L.info("Start löschen von Datensatz");
 		String sql = "delete from Person where idPerson = ?";
 		L.info(sql);

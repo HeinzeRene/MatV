@@ -59,7 +59,7 @@ public abstract class DB_Leihschein implements IDataBase {
 	}
 
 	@Override
-	public void deleteLeihschein(int leihscheinNummer, Date anfangausleihe, Date endeausleihe) throws DataFormatException {
+	public void deleteLeihschein(int leihscheinNummer) throws DataFormatException {
 		// TODO Auto-generated method stub
 		L.info("Start löschen von Datensatz Leihschein");
 		String sql = "delete from leihschein where leihscheinNummer = ?";
