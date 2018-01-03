@@ -1,6 +1,7 @@
 package Projektarbeit.leihVorgang;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.zip.DataFormatException;
@@ -57,7 +58,6 @@ public class AngebotErstellen  {
 	public void execute(DelegateExecution execution) throws Exception {
 	
 		//leihscheinNummer = erstelleLeihscheinNummer();
-		anfangausleihe = 
 				
 		L.info("Start einlesen von Leihscheindaten");
 		String sql = "insert into leihschein(idPerson, anfangausleihe, endeausleihe" + 
@@ -65,8 +65,8 @@ public class AngebotErstellen  {
 		L.info(sql);
 		try(PreparedStatement s = connection.prepareStatement(sql)){
 			s.setInt(1, idGremium);
-			s.setDate(2, anfangausleihe);
-			s.setDate(3, endeausleihe);
+			s.setDate(2, (Date) execution.getVariable("anfangausleihe"));
+			s.setDate(3, (Date) execution.getVariable("endeausleihe"));
 			s.executeUpdate();
 		}catch  (SQLException e) {
 			L.error(""+e);
