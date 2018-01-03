@@ -1,20 +1,78 @@
 package Projektarbeit.leihVorgang;
 
-import org.slf4j.ILoggerFactory;
-import org.slf4j.spi.LoggerFactoryBinder;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.zip.DataFormatException;
 
-public class AngebotErstellen implements LoggerFactoryBinder {
+import org.camunda.bpm.engine.delegate.DelegateExecution;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-	@Override
-	public ILoggerFactory getLoggerFactory() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+import DataBase.DB_Person;
 
-	@Override
-	public String getLoggerFactoryClassStr() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+public class AngebotErstellen  {
+
+
+	private static final Logger L = LoggerFactory.getLogger(DB_Person.class);
+	//private int leihscheinNummer = -1;	Leihscheinnummer nur anwenden, wenn MySQL nicht automatisch eine vergibt
+	private int idGremium = -1;
+	
+	private Connection connection;
+		public void setConnection(Connection connection) {
+		this.connection = connection;
+	}//end of connection
+	
+	private Connection getConnection() {
+		if (connection == null) {
+			try {
+				throw new Exception("Connection not set");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return connection;
+	}//end of getConnection 
+
+//	public int erstelleLeihscheinNummer() {
+//		L.info("Start einlesen der letzten vergebenen Leihscheinnummer");
+//		String sql = "select max(leihscheinNummer) from leihschein";
+//		L.info(sql);
+//		try(PreparedStatement s = connection.prepareStatement(sql)){
+//			
+//			leihscheinNummer = Integer.parseInt(sql) +1;
+//			s.executeUpdate();
+//		}catch  (SQLException e) {
+//			L.error(""+e);
+//			try {
+//				throw new Exception();
+//			} catch (Exception e1) {
+//				e1.printStackTrace();
+//			}
+//		}
+//		L.info("Ende des Einlesens");
+//		return leihscheinNummer;
+//	}
+	
+	public void execute(DelegateExecution execution) throws Exception {
+	
+		//leihscheinNummer = erstelleLeihscheinNummer();
+				
+		L.info("Start einlesen von Leihscheindaten");
+		String sql = "insert into leihschein(idPerson, anfangausleihe, endeausleihe" + 
+				"values (?, ?, ?)";
+		L.info(sql);
+		try(PreparedStatement s = connection.prepareStatement(sql)){
+			s.setInt(1, idGremium);
+			s.setDate(2, (Date) execution.getVariable("anfangausleihe"));
+			s.setDate(3, (Date) execution.getVariable("endeausleihe"));
+			s.executeUpdate();
+		}catch  (SQLException e) {
+			L.error(""+e);
+			throw new DataFormatException();
+		}
+		L.info("Ende des Einlesens");
+	}// end of execution
 
 }
