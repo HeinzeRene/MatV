@@ -2,7 +2,7 @@
 <definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="definitions_0h3u5b5" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
   <decision id="decision" name="Kaution_Ermitteln">
     <decisionTable id="decisionTable">
-      <input id="input1" label="Student der HTw Berlin?">
+      <input id="input1" label="Student der HTW Berlin?">
         <inputExpression id="inputExpression1" typeRef="boolean" />
       </input>
       <input id="InputClause_06lc9bg" label="Gremiumangehöriger?">
@@ -10,7 +10,6 @@
       </input>
       <output id="output1" label="Kautions in %" name="" typeRef="integer" />
       <rule id="row-752616073-1">
-        <description></description>
         <inputEntry id="UnaryTests_0cw29j4">        <text>false</text>
 </inputEntry>
         <inputEntry id="UnaryTests_0u066b5">        <text>false</text>
@@ -27,7 +26,6 @@
 </outputEntry>
       </rule>
       <rule id="row-752616073-3">
-        <description></description>
         <inputEntry id="UnaryTests_1ua9gm9">        <text>true</text>
 </inputEntry>
         <inputEntry id="UnaryTests_0zw73lo">        <text>true</text>
