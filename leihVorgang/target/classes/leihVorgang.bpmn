@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.7.2">
   <bpmn:collaboration id="Collaboration_0wfjpma">
-    <bpmn:participant id="Participant_1hkobml" name="Studierendenschaft der HTW Berlin" processRef="Process_1" />
+    <bpmn:participant id="Participant_1hkobml" name="Studierendenschaft der HTW Berlin" processRef="leihVorgang" />
     <bpmn:participant id="Participant_0xhd0ne" name="Antragssteller" />
     <bpmn:messageFlow id="MessageFlow_0l8yy29" sourceRef="Participant_0xhd0ne" targetRef="StartEvent_1" />
     <bpmn:messageFlow id="MessageFlow_0th6fi0" sourceRef="Task_1w4r4zb" targetRef="Participant_0xhd0ne" />
     <bpmn:messageFlow id="MessageFlow_0yhwkls" sourceRef="Task_14bndrl" targetRef="Participant_0xhd0ne" />
     <bpmn:messageFlow id="MessageFlow_1u6kd5f" sourceRef="Participant_0xhd0ne" targetRef="IntermediateCatchEvent_1h0db24" />
   </bpmn:collaboration>
-  <bpmn:process id="Process_1" isExecutable="true">
+  <bpmn:process id="leihVorgang" name="leihVorgang" isExecutable="true">
     <bpmn:laneSet>
       <bpmn:lane id="Lane_0fdtxzf" name="Materialverantwortlicher  Mitarbeiter">
         <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
