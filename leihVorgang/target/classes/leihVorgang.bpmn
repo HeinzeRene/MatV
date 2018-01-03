@@ -48,7 +48,7 @@
       <bpmn:dataOutputAssociation />
     </bpmn:callActivity>
     <bpmn:sequenceFlow id="SequenceFlow_0ohuo6t" sourceRef="Task_1rkifq1" targetRef="Task_02xrijt" />
-    <bpmn:sendTask id="Task_1w4r4zb" name="Angebot versenden">
+    <bpmn:sendTask id="Task_1w4r4zb" name="Angebot versenden" camunda:class="/leihVorgang/src/main/java/Projektarbeit/MailVersenden/MailAngebotVersenden.java">
       <bpmn:incoming>SequenceFlow_14rtkxc</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1jidf35</bpmn:outgoing>
     </bpmn:sendTask>
@@ -91,7 +91,7 @@
       <bpmn:incoming>SequenceFlow_0p89p36</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_18llktk</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:sendTask id="Task_14bndrl" name="Nachfrage über Angebotsannahme">
+    <bpmn:sendTask id="Task_14bndrl" name="Nachfrage über Angebotsannahme" camunda:class="/leihVorgang/src/main/java/Projektarbeit/MailVersenden/MailNachfrageAngebot.java">
       <bpmn:incoming>SequenceFlow_15kqjiq</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1v90imf</bpmn:outgoing>
     </bpmn:sendTask>
@@ -137,7 +137,6 @@
       <bpmn:dataInputAssociation />
       <bpmn:dataInputAssociation id="DataInputAssociation_00nt29y">
         <bpmn:sourceRef>DataStoreReference_1esora7</bpmn:sourceRef>
-        <bpmn:targetRef>undefined</bpmn:targetRef>
       </bpmn:dataInputAssociation>
       <bpmn:dataOutputAssociation />
       <bpmn:dataOutputAssociation id="DataOutputAssociation_0g0yno1">
@@ -155,7 +154,6 @@
       <bpmn:dataInputAssociation />
       <bpmn:dataInputAssociation id="DataInputAssociation_0b69euq">
         <bpmn:sourceRef>DataStoreReference_01sngt7</bpmn:sourceRef>
-        <bpmn:targetRef>undefined</bpmn:targetRef>
       </bpmn:dataInputAssociation>
     </bpmn:serviceTask>
     <bpmn:dataStoreReference id="DataStoreReference_0dohmpw" />

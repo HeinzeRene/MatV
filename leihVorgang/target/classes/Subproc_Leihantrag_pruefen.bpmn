@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.7.2">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.7.2">
   <bpmn:collaboration id="Collaboration_0y8nf1o">
     <bpmn:participant id="Participant_0kesgqf" name="Studierendenschaft der HTW Berlin" processRef="Process_1" />
   </bpmn:collaboration>
@@ -21,7 +21,7 @@
       <bpmn:outgoing>SequenceFlow_0gvq58a</bpmn:outgoing>
       <bpmn:outgoing>SequenceFlow_1onh3jt</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:serviceTask id="ServiceTask_1kdp9xu" name="Prüfung Kundenkonto">
+    <bpmn:serviceTask id="ServiceTask_1kdp9xu" name="Prüfung Kundenkonto" camunda:class="/leihVorgang/src/main/java/Projektarbeit/leihVorgang/PruefenKundenkonto.java">
       <bpmn:incoming>SequenceFlow_10dp2sa</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1rj4xqi</bpmn:outgoing>
       <bpmn:property name="__targetRef_placeholder" />
@@ -34,7 +34,7 @@
       <bpmn:incoming>SequenceFlow_0yqji1x</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1sfrjk9</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:serviceTask id="ServiceTask_0o4eisn" name="Anlegen Kundenkonto">
+    <bpmn:serviceTask id="ServiceTask_0o4eisn" name="Anlegen Kundenkonto" camunda:class="/mitarbeiterEinstellen/src/main/java/camundaWorkshop/mitarbeiterEinstellen/AnlegenKundenkonto.java">
       <bpmn:incoming>SequenceFlow_1onh3jt</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0yqji1x</bpmn:outgoing>
       <bpmn:dataOutputAssociation id="DataOutputAssociation_1eqsy8w">
@@ -45,8 +45,12 @@
     <bpmn:dataStoreReference id="DataStoreReference_13qxqrm" name="Kundendatenbank" />
     <bpmn:sequenceFlow id="SequenceFlow_10dp2sa" sourceRef="StartEvent_0zcw2a1" targetRef="ServiceTask_1kdp9xu" />
     <bpmn:sequenceFlow id="SequenceFlow_1rj4xqi" sourceRef="ServiceTask_1kdp9xu" targetRef="ExclusiveGateway_1icjwoe" />
-    <bpmn:sequenceFlow id="SequenceFlow_0gvq58a" name="positiiv" sourceRef="ExclusiveGateway_1icjwoe" targetRef="ExclusiveGateway_1o4oz8z" />
-    <bpmn:sequenceFlow id="SequenceFlow_1onh3jt" name="negativ" sourceRef="ExclusiveGateway_1icjwoe" targetRef="ServiceTask_0o4eisn" />
+    <bpmn:sequenceFlow id="SequenceFlow_0gvq58a" name="positiiv" sourceRef="ExclusiveGateway_1icjwoe" targetRef="ExclusiveGateway_1o4oz8z">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${kontoVorh==true}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="SequenceFlow_1onh3jt" name="negativ" sourceRef="ExclusiveGateway_1icjwoe" targetRef="ServiceTask_0o4eisn">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${kontoVorh==false}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_0yqji1x" sourceRef="ServiceTask_0o4eisn" targetRef="ExclusiveGateway_1o4oz8z" />
     <bpmn:sequenceFlow id="SequenceFlow_1sfrjk9" sourceRef="ExclusiveGateway_1o4oz8z" targetRef="EndEvent_1qkko16" />
     <bpmn:endEvent id="EndEvent_1qkko16">

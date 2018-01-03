@@ -14,7 +14,7 @@ public class PruefenKundenkonto {
 	
 	
 	
-	private static final Logger L = (Logger) LoggerFactory.getLogger(PruefenKundenkonto.class);
+	private static final Logger L =  (Logger) LoggerFactory.getLogger(PruefenKundenkonto.class);
 	
 	private Connection connection;
 		public void setConnection(Connection connection) {
