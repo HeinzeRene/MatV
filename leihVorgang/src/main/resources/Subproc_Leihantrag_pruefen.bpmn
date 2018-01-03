@@ -45,7 +45,7 @@
     <bpmn:dataStoreReference id="DataStoreReference_13qxqrm" name="Kundendatenbank" />
     <bpmn:sequenceFlow id="SequenceFlow_10dp2sa" sourceRef="StartEvent_0zcw2a1" targetRef="ServiceTask_1kdp9xu" />
     <bpmn:sequenceFlow id="SequenceFlow_1rj4xqi" sourceRef="ServiceTask_1kdp9xu" targetRef="ExclusiveGateway_1icjwoe" />
-    <bpmn:sequenceFlow id="SequenceFlow_0gvq58a" name="positiiv" sourceRef="ExclusiveGateway_1icjwoe" targetRef="ExclusiveGateway_1o4oz8z">
+    <bpmn:sequenceFlow id="SequenceFlow_0gvq58a" name="positiv" sourceRef="ExclusiveGateway_1icjwoe" targetRef="ExclusiveGateway_1o4oz8z">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${kontoVorh==true}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_1onh3jt" name="negativ" sourceRef="ExclusiveGateway_1icjwoe" targetRef="ServiceTask_0o4eisn">
@@ -131,7 +131,7 @@
         <di:waypoint xsi:type="dc:Point" x="209" y="-45" />
         <di:waypoint xsi:type="dc:Point" x="310" y="-45" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="245.5" y="-66" width="34" height="13" />
+          <dc:Bounds x="247" y="-66" width="32" height="13" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_1onh3jt_di" bpmnElement="SequenceFlow_1onh3jt">
