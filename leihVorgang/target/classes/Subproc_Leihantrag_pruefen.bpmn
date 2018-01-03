@@ -52,9 +52,9 @@
     <bpmn:endEvent id="EndEvent_1qkko16">
       <bpmn:incoming>SequenceFlow_1sfrjk9</bpmn:incoming>
     </bpmn:endEvent>
+    <bpmn:association id="Association_0v5lz02" sourceRef="DataStoreReference_18uycuz" targetRef="TextAnnotation_0p7mqax" />
     <bpmn:textAnnotation id="TextAnnotation_0p7mqax">    <bpmn:text>Abgleich der Kundendaten mit Formulardaten</bpmn:text>
 </bpmn:textAnnotation>
-    <bpmn:association id="Association_0v5lz02" sourceRef="DataStoreReference_18uycuz" targetRef="TextAnnotation_0p7mqax" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0y8nf1o">
@@ -107,7 +107,7 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="TextAnnotation_0p7mqax_di" bpmnElement="TextAnnotation_0p7mqax">
-        <dc:Bounds x="-121" y="27" width="114" height="74" />
+        <dc:Bounds x="-130" y="46" width="114" height="74" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_10dp2sa_di" bpmnElement="SequenceFlow_10dp2sa">
         <di:waypoint xsi:type="dc:Point" x="-65" y="-45" />
@@ -163,8 +163,8 @@
         <di:waypoint xsi:type="dc:Point" x="474" y="84" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Association_0v5lz02_di" bpmnElement="Association_0v5lz02">
-        <di:waypoint xsi:type="dc:Point" x="9" y="78" />
-        <di:waypoint xsi:type="dc:Point" x="-7" y="75" />
+        <di:waypoint xsi:type="dc:Point" x="9" y="83" />
+        <di:waypoint xsi:type="dc:Point" x="-16" y="83" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
