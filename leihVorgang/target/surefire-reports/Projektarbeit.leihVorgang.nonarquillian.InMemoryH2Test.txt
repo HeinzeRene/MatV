@@ -1,18 +1,45 @@
 -------------------------------------------------------------------------------
 Test set: Projektarbeit.leihVorgang.nonarquillian.InMemoryH2Test
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 4.535 sec <<< FAILURE! - in Projektarbeit.leihVorgang.nonarquillian.InMemoryH2Test
-testParsingAndDeployment(Projektarbeit.leihVorgang.nonarquillian.InMemoryH2Test)  Time elapsed: 0.06 sec  <<< ERROR!
-org.camunda.bpm.engine.exception.NullValueException: resource 'process.bpmn' not found: inputStream is null
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-	at org.camunda.bpm.engine.impl.util.EnsureUtil.generateException(EnsureUtil.java:344)
-	at org.camunda.bpm.engine.impl.util.EnsureUtil.ensureNotNull(EnsureUtil.java:49)
-	at org.camunda.bpm.engine.impl.util.EnsureUtil.ensureNotNull(EnsureUtil.java:44)
-	at org.camunda.bpm.engine.impl.repository.DeploymentBuilderImpl.addClasspathResource(DeploymentBuilderImpl.java:91)
-	at org.camunda.bpm.engine.impl.test.TestHelper.annotationDeploymentSetUp(TestHelper.java:133)
+Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 4.564 sec <<< FAILURE! - in Projektarbeit.leihVorgang.nonarquillian.InMemoryH2Test
+testParsingAndDeployment(Projektarbeit.leihVorgang.nonarquillian.InMemoryH2Test)  Time elapsed: 0.227 sec  <<< ERROR!
+org.camunda.bpm.engine.ProcessEngineException: ENGINE-09005 Could not parse BPMN process. Errors: 
+* cvc-complex-type.2.4.b: Content des Elements 'bpmn:dataOutputAssociation' ist nicht vollständig. '{"http://www.omg.org/spec/BPMN/20100524/MODEL":documentation, "http://www.omg.org/spec/BPMN/20100524/MODEL":extensionElements, "http://www.omg.org/spec/BPMN/20100524/MODEL":sourceRef, "http://www.omg.org/spec/BPMN/20100524/MODEL":targetRef}' wird erwartet. | leihVorgang.bpmn | line 45 | column 37
+* cvc-complex-type.2.4.b: Content des Elements 'bpmn:dataInputAssociation' ist nicht vollständig. '{"http://www.omg.org/spec/BPMN/20100524/MODEL":documentation, "http://www.omg.org/spec/BPMN/20100524/MODEL":extensionElements, "http://www.omg.org/spec/BPMN/20100524/MODEL":sourceRef, "http://www.omg.org/spec/BPMN/20100524/MODEL":targetRef}' wird erwartet. | leihVorgang.bpmn | line 116 | column 36
+* cvc-complex-type.2.4.b: Content des Elements 'bpmn:dataInputAssociation' ist nicht vollständig. '{"http://www.omg.org/spec/BPMN/20100524/MODEL":documentation, "http://www.omg.org/spec/BPMN/20100524/MODEL":extensionElements, "http://www.omg.org/spec/BPMN/20100524/MODEL":sourceRef, "http://www.omg.org/spec/BPMN/20100524/MODEL":targetRef}' wird erwartet. | leihVorgang.bpmn | line 117 | column 36
+* cvc-complex-type.2.4.b: Content des Elements 'bpmn:dataInputAssociation' ist nicht vollständig. '{"http://www.omg.org/spec/BPMN/20100524/MODEL":sourceRef, "http://www.omg.org/spec/BPMN/20100524/MODEL":targetRef}' wird erwartet. | leihVorgang.bpmn | line 120 | column 35
+* One of the attributes 'class', 'delegateExpression', 'type', or 'expression' is mandatory on sendTask. | leihVorgang.bpmn | line 48 | column 63
+* One of the attributes 'class', 'delegateExpression', 'type', or 'expression' is mandatory on sendTask. | leihVorgang.bpmn | line 82 | column 76
+* attribute 'messageRef' is required | leihVorgang.bpmn | line 105 | column 38
+* Invalid 'messageRef': no message with id 'null' found. | leihVorgang.bpmn | line 105 | column 38
+	at org.camunda.bpm.engine.impl.util.EngineUtilLogger.exceptionDuringParsing(EngineUtilLogger.java:58)
+	at org.camunda.bpm.engine.impl.util.xml.Parse.throwExceptionForErrors(Parse.java:191)
+	at org.camunda.bpm.engine.impl.bpmn.parser.BpmnParse.execute(BpmnParse.java:266)
+	at org.camunda.bpm.engine.impl.bpmn.deployer.BpmnDeployer.transformDefinitions(BpmnDeployer.java:101)
+	at org.camunda.bpm.engine.impl.AbstractDefinitionDeployer.transformResource(AbstractDefinitionDeployer.java:96)
+	at org.camunda.bpm.engine.impl.AbstractDefinitionDeployer.parseDefinitionResources(AbstractDefinitionDeployer.java:71)
+	at org.camunda.bpm.engine.impl.AbstractDefinitionDeployer.deploy(AbstractDefinitionDeployer.java:61)
+	at org.camunda.bpm.engine.impl.persistence.deploy.cache.CacheDeployer$1.call(CacheDeployer.java:50)
+	at org.camunda.bpm.engine.impl.persistence.deploy.cache.CacheDeployer$1.call(CacheDeployer.java:47)
+	at org.camunda.bpm.engine.impl.interceptor.CommandContext.runWithoutAuthorization(CommandContext.java:473)
+	at org.camunda.bpm.engine.impl.persistence.deploy.cache.CacheDeployer.deploy(CacheDeployer.java:47)
+	at org.camunda.bpm.engine.impl.persistence.deploy.cache.DeploymentCache.deploy(DeploymentCache.java:63)
+	at org.camunda.bpm.engine.impl.persistence.entity.DeploymentManager.insertDeployment(DeploymentManager.java:51)
+	at org.camunda.bpm.engine.impl.cmd.DeployCmd.deploy(DeployCmd.java:479)
+	at org.camunda.bpm.engine.impl.cmd.DeployCmd$1.call(DeployCmd.java:138)
+	at org.camunda.bpm.engine.impl.cmd.DeployCmd$1.call(DeployCmd.java:126)
+	at org.camunda.bpm.engine.impl.interceptor.CommandContext.runWithoutAuthorization(CommandContext.java:473)
+	at org.camunda.bpm.engine.impl.cmd.DeployCmd.doExecute(DeployCmd.java:126)
+	at org.camunda.bpm.engine.impl.cmd.DeployCmd.execute(DeployCmd.java:92)
+	at org.camunda.bpm.engine.impl.cmd.DeployCmd.execute(DeployCmd.java:72)
+	at org.camunda.bpm.engine.impl.interceptor.CommandExecutorImpl.execute(CommandExecutorImpl.java:24)
+	at org.camunda.bpm.engine.impl.interceptor.CommandContextInterceptor.execute(CommandContextInterceptor.java:104)
+	at org.camunda.bpm.engine.impl.interceptor.ProcessApplicationContextInterceptor.execute(ProcessApplicationContextInterceptor.java:66)
+	at org.camunda.bpm.engine.impl.interceptor.LogInterceptor.execute(LogInterceptor.java:30)
+	at org.camunda.bpm.engine.impl.RepositoryServiceImpl.deployWithResult(RepositoryServiceImpl.java:100)
+	at org.camunda.bpm.engine.impl.repository.DeploymentBuilderImpl.deployWithResult(DeploymentBuilderImpl.java:266)
+	at org.camunda.bpm.engine.impl.repository.DeploymentBuilderImpl.deploy(DeploymentBuilderImpl.java:262)
+	at org.camunda.bpm.engine.impl.test.TestHelper.annotationDeploymentSetUp(TestHelper.java:136)
 	at org.camunda.bpm.engine.test.ProcessEngineRule.starting(ProcessEngineRule.java:146)
 	at org.camunda.bpm.extension.process_test_coverage.junit.rules.TestCoverageProcessEngineRule.starting(TestCoverageProcessEngineRule.java:136)
 	at org.junit.rules.TestWatcher.startingQuietly(TestWatcher.java:108)
@@ -39,7 +66,7 @@ org.camunda.bpm.engine.exception.NullValueException: resource 'process.bpmn' not
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
 
-testParsingAndDeployment(Projektarbeit.leihVorgang.nonarquillian.InMemoryH2Test)  Time elapsed: 0.064 sec  <<< ERROR!
+testParsingAndDeployment(Projektarbeit.leihVorgang.nonarquillian.InMemoryH2Test)  Time elapsed: 0.228 sec  <<< ERROR!
 java.lang.NullPointerException: null
 	at org.camunda.bpm.extension.process_test_coverage.junit.rules.TestCoverageProcessEngineRule.handleTestMethodCoverage(TestCoverageProcessEngineRule.java:307)
 	at org.camunda.bpm.extension.process_test_coverage.junit.rules.TestCoverageProcessEngineRule.finished(TestCoverageProcessEngineRule.java:144)
@@ -67,17 +94,44 @@ java.lang.NullPointerException: null
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
 
-testHappyPath(Projektarbeit.leihVorgang.nonarquillian.InMemoryH2Test)  Time elapsed: 0.005 sec  <<< ERROR!
-org.camunda.bpm.engine.exception.NullValueException: resource 'process.bpmn' not found: inputStream is null
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-	at org.camunda.bpm.engine.impl.util.EnsureUtil.generateException(EnsureUtil.java:344)
-	at org.camunda.bpm.engine.impl.util.EnsureUtil.ensureNotNull(EnsureUtil.java:49)
-	at org.camunda.bpm.engine.impl.util.EnsureUtil.ensureNotNull(EnsureUtil.java:44)
-	at org.camunda.bpm.engine.impl.repository.DeploymentBuilderImpl.addClasspathResource(DeploymentBuilderImpl.java:91)
-	at org.camunda.bpm.engine.impl.test.TestHelper.annotationDeploymentSetUp(TestHelper.java:133)
+testHappyPath(Projektarbeit.leihVorgang.nonarquillian.InMemoryH2Test)  Time elapsed: 0.066 sec  <<< ERROR!
+org.camunda.bpm.engine.ProcessEngineException: ENGINE-09005 Could not parse BPMN process. Errors: 
+* cvc-complex-type.2.4.b: Content des Elements 'bpmn:dataOutputAssociation' ist nicht vollständig. '{"http://www.omg.org/spec/BPMN/20100524/MODEL":documentation, "http://www.omg.org/spec/BPMN/20100524/MODEL":extensionElements, "http://www.omg.org/spec/BPMN/20100524/MODEL":sourceRef, "http://www.omg.org/spec/BPMN/20100524/MODEL":targetRef}' wird erwartet. | leihVorgang.bpmn | line 45 | column 37
+* cvc-complex-type.2.4.b: Content des Elements 'bpmn:dataInputAssociation' ist nicht vollständig. '{"http://www.omg.org/spec/BPMN/20100524/MODEL":documentation, "http://www.omg.org/spec/BPMN/20100524/MODEL":extensionElements, "http://www.omg.org/spec/BPMN/20100524/MODEL":sourceRef, "http://www.omg.org/spec/BPMN/20100524/MODEL":targetRef}' wird erwartet. | leihVorgang.bpmn | line 116 | column 36
+* cvc-complex-type.2.4.b: Content des Elements 'bpmn:dataInputAssociation' ist nicht vollständig. '{"http://www.omg.org/spec/BPMN/20100524/MODEL":documentation, "http://www.omg.org/spec/BPMN/20100524/MODEL":extensionElements, "http://www.omg.org/spec/BPMN/20100524/MODEL":sourceRef, "http://www.omg.org/spec/BPMN/20100524/MODEL":targetRef}' wird erwartet. | leihVorgang.bpmn | line 117 | column 36
+* cvc-complex-type.2.4.b: Content des Elements 'bpmn:dataInputAssociation' ist nicht vollständig. '{"http://www.omg.org/spec/BPMN/20100524/MODEL":sourceRef, "http://www.omg.org/spec/BPMN/20100524/MODEL":targetRef}' wird erwartet. | leihVorgang.bpmn | line 120 | column 35
+* One of the attributes 'class', 'delegateExpression', 'type', or 'expression' is mandatory on sendTask. | leihVorgang.bpmn | line 48 | column 63
+* One of the attributes 'class', 'delegateExpression', 'type', or 'expression' is mandatory on sendTask. | leihVorgang.bpmn | line 82 | column 76
+* attribute 'messageRef' is required | leihVorgang.bpmn | line 105 | column 38
+* Invalid 'messageRef': no message with id 'null' found. | leihVorgang.bpmn | line 105 | column 38
+	at org.camunda.bpm.engine.impl.util.EngineUtilLogger.exceptionDuringParsing(EngineUtilLogger.java:58)
+	at org.camunda.bpm.engine.impl.util.xml.Parse.throwExceptionForErrors(Parse.java:191)
+	at org.camunda.bpm.engine.impl.bpmn.parser.BpmnParse.execute(BpmnParse.java:266)
+	at org.camunda.bpm.engine.impl.bpmn.deployer.BpmnDeployer.transformDefinitions(BpmnDeployer.java:101)
+	at org.camunda.bpm.engine.impl.AbstractDefinitionDeployer.transformResource(AbstractDefinitionDeployer.java:96)
+	at org.camunda.bpm.engine.impl.AbstractDefinitionDeployer.parseDefinitionResources(AbstractDefinitionDeployer.java:71)
+	at org.camunda.bpm.engine.impl.AbstractDefinitionDeployer.deploy(AbstractDefinitionDeployer.java:61)
+	at org.camunda.bpm.engine.impl.persistence.deploy.cache.CacheDeployer$1.call(CacheDeployer.java:50)
+	at org.camunda.bpm.engine.impl.persistence.deploy.cache.CacheDeployer$1.call(CacheDeployer.java:47)
+	at org.camunda.bpm.engine.impl.interceptor.CommandContext.runWithoutAuthorization(CommandContext.java:473)
+	at org.camunda.bpm.engine.impl.persistence.deploy.cache.CacheDeployer.deploy(CacheDeployer.java:47)
+	at org.camunda.bpm.engine.impl.persistence.deploy.cache.DeploymentCache.deploy(DeploymentCache.java:63)
+	at org.camunda.bpm.engine.impl.persistence.entity.DeploymentManager.insertDeployment(DeploymentManager.java:51)
+	at org.camunda.bpm.engine.impl.cmd.DeployCmd.deploy(DeployCmd.java:479)
+	at org.camunda.bpm.engine.impl.cmd.DeployCmd$1.call(DeployCmd.java:138)
+	at org.camunda.bpm.engine.impl.cmd.DeployCmd$1.call(DeployCmd.java:126)
+	at org.camunda.bpm.engine.impl.interceptor.CommandContext.runWithoutAuthorization(CommandContext.java:473)
+	at org.camunda.bpm.engine.impl.cmd.DeployCmd.doExecute(DeployCmd.java:126)
+	at org.camunda.bpm.engine.impl.cmd.DeployCmd.execute(DeployCmd.java:92)
+	at org.camunda.bpm.engine.impl.cmd.DeployCmd.execute(DeployCmd.java:72)
+	at org.camunda.bpm.engine.impl.interceptor.CommandExecutorImpl.execute(CommandExecutorImpl.java:24)
+	at org.camunda.bpm.engine.impl.interceptor.CommandContextInterceptor.execute(CommandContextInterceptor.java:104)
+	at org.camunda.bpm.engine.impl.interceptor.ProcessApplicationContextInterceptor.execute(ProcessApplicationContextInterceptor.java:66)
+	at org.camunda.bpm.engine.impl.interceptor.LogInterceptor.execute(LogInterceptor.java:30)
+	at org.camunda.bpm.engine.impl.RepositoryServiceImpl.deployWithResult(RepositoryServiceImpl.java:100)
+	at org.camunda.bpm.engine.impl.repository.DeploymentBuilderImpl.deployWithResult(DeploymentBuilderImpl.java:266)
+	at org.camunda.bpm.engine.impl.repository.DeploymentBuilderImpl.deploy(DeploymentBuilderImpl.java:262)
+	at org.camunda.bpm.engine.impl.test.TestHelper.annotationDeploymentSetUp(TestHelper.java:136)
 	at org.camunda.bpm.engine.test.ProcessEngineRule.starting(ProcessEngineRule.java:146)
 	at org.camunda.bpm.extension.process_test_coverage.junit.rules.TestCoverageProcessEngineRule.starting(TestCoverageProcessEngineRule.java:136)
 	at org.junit.rules.TestWatcher.startingQuietly(TestWatcher.java:108)
@@ -104,7 +158,7 @@ org.camunda.bpm.engine.exception.NullValueException: resource 'process.bpmn' not
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
 
-testHappyPath(Projektarbeit.leihVorgang.nonarquillian.InMemoryH2Test)  Time elapsed: 0.01 sec  <<< ERROR!
+testHappyPath(Projektarbeit.leihVorgang.nonarquillian.InMemoryH2Test)  Time elapsed: 0.068 sec  <<< ERROR!
 java.lang.NullPointerException: null
 	at org.camunda.bpm.extension.process_test_coverage.junit.rules.TestCoverageProcessEngineRule.handleTestMethodCoverage(TestCoverageProcessEngineRule.java:307)
 	at org.camunda.bpm.extension.process_test_coverage.junit.rules.TestCoverageProcessEngineRule.finished(TestCoverageProcessEngineRule.java:144)
@@ -132,7 +186,7 @@ java.lang.NullPointerException: null
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
 
-Projektarbeit.leihVorgang.nonarquillian.InMemoryH2Test  Time elapsed: 0.016 sec  <<< ERROR!
+Projektarbeit.leihVorgang.nonarquillian.InMemoryH2Test  Time elapsed: 0.074 sec  <<< ERROR!
 java.util.NoSuchElementException: null
 	at java.util.HashMap$HashIterator.nextNode(HashMap.java:1439)
 	at java.util.HashMap$ValueIterator.next(HashMap.java:1466)
