@@ -34,7 +34,7 @@
     </bpmn:laneSet>
     <bpmn:startEvent id="StartEvent_1" name="Bedarfsmeldung per Formular" camunda:formKey="embedded:app:forms/datenErf.html">
       <bpmn:extensionElements>
-        <camunda:executionListener class="" event="start" />
+        <camunda:executionListener class="Projektarbeit.leihVorgang.StartListenZusammenstellen" event="start" />
       </bpmn:extensionElements>
       <bpmn:outgoing>SequenceFlow_1ib3r16</bpmn:outgoing>
     </bpmn:startEvent>
@@ -53,7 +53,7 @@
       <bpmn:outgoing>SequenceFlow_1jidf35</bpmn:outgoing>
     </bpmn:sendTask>
     <bpmn:dataStoreReference id="DataStoreReference_01sngt7" name="Buchung" />
-    <bpmn:serviceTask id="Task_1ls8j08" name="Leihangebot erstellen">
+    <bpmn:serviceTask id="Task_1ls8j08" name="Leihangebot erstellen" camunda:class="">
       <bpmn:incoming>SequenceFlow_127l19f</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_14rtkxc</bpmn:outgoing>
       <bpmn:property id="Property_03gvn5z" name="__targetRef_placeholder" />
@@ -132,7 +132,7 @@
     <bpmn:dataObjectReference id="DataObjectReference_0q922xt" dataObjectRef="DataObject_0jiv98q" />
     <bpmn:dataObject id="DataObject_0jiv98q" />
     <bpmn:dataStoreReference id="DataStoreReference_1esora7" name="Leihschein" />
-    <bpmn:serviceTask id="Task_1aayvzw" name="Erstellung Leihschein">
+    <bpmn:serviceTask id="Task_1aayvzw" name="Erstellung Leihschein" camunda:class="">
       <bpmn:incoming>SequenceFlow_0bia9xf</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_16j9s97</bpmn:outgoing>
       <bpmn:property name="__targetRef_placeholder" />
@@ -148,7 +148,7 @@
         <bpmn:targetRef>DataStoreReference_0dohmpw</bpmn:targetRef>
       </bpmn:dataOutputAssociation>
     </bpmn:serviceTask>
-    <bpmn:serviceTask id="Task_02xrijt" name="Verfügbarkeit des Zeitraumes prüfen">
+    <bpmn:serviceTask id="Task_02xrijt" name="Verfügbarkeit des Zeitraumes prüfen" camunda:class="">
       <bpmn:incoming>SequenceFlow_0ohuo6t</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_11j5co2</bpmn:outgoing>
       <bpmn:property name="__targetRef_placeholder" />
