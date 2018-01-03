@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import DataBase.DB_Person;
 
-public class anlegenKonto{
+public class AnlegenKonto{
 
 	private static final Logger L = LoggerFactory.getLogger(DB_Person.class);
 	

@@ -34,7 +34,7 @@
       <bpmn:incoming>SequenceFlow_0yqji1x</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1sfrjk9</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:serviceTask id="ServiceTask_0o4eisn" name="Anlegen Kundenkonto" camunda:class="/mitarbeiterEinstellen/src/main/java/camundaWorkshop/mitarbeiterEinstellen/AnlegenKundenkonto.java">
+    <bpmn:serviceTask id="ServiceTask_0o4eisn" name="Anlegen Kundenkonto" camunda:class="/leihVorgang/src/main/java/Projektarbeit/leihVorgang/AnlegenKonto.java">
       <bpmn:incoming>SequenceFlow_1onh3jt</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0yqji1x</bpmn:outgoing>
       <bpmn:dataOutputAssociation id="DataOutputAssociation_1eqsy8w">
