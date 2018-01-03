@@ -33,7 +33,7 @@ public abstract class DB_Person implements IDataBase{
 	}//end of getConnection 
 
 	/*
-	 * PRÜFEN - IDataBase mit bereits implemetierten Exceptions???
+	 * PRueFEN - IDataBase mit bereits implemetierten Exceptions???
 	 */
 
 	
