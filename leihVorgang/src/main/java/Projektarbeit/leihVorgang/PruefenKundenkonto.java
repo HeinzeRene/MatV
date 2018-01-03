@@ -10,6 +10,7 @@ import ch.qos.logback.classic.Logger;
 public class PruefenKundenkonto {
 
 	private String eMailAdresse;
+	private boolean kontoVorh;
 	private static final Logger L =  (Logger) LoggerFactory.getLogger(PruefenKundenkonto.class);
 	
 	private Connection connection;
@@ -29,7 +30,7 @@ public class PruefenKundenkonto {
 		return connection;
 	}//end of getConnection
 	
-	private boolean getPerson(String vorname, String nachname) throws Exception {
+	private boolean getPerson() throws Exception {
 			
 		L.info("Start Auslesen von Kundendaten");
 		String sql = "select * person from where vorname = ? and nachname is ?";
@@ -51,9 +52,10 @@ public class PruefenKundenkonto {
 		}
 		
 		if(eMailAdresse == null) {
-			return false;	
+			kontoVorh = false;	
 		}else {
-			return true;
+			kontoVorh = true;
 		}	
+		return kontoVorh;
 	}//end of getPerson
 }//end of class
