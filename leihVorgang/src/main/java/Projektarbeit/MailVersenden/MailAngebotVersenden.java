@@ -16,10 +16,11 @@ public class MailAngebotVersenden implements JavaDelegate {
 		String anrede = (String) execution.getVariable("anrede");
 		String vorname = (String) execution.getVariable("vorname");
 		String nachname = (String) execution.getVariable("nachname");
-		int leihscheinNummer = (int) execution.getVariable("leihscheinNummer"); 
-		String eMailAdresse = (String) execution.getVariable("eMailAdresse");
-		String subject = "Ihre Leihanfrage " + leihscheinNummer + "/Übersendung Leihangebot";
+		String AntragLeihNr = (String) execution.getVariable("AntragLeihNr"); //-->Sollte nach Plan ein Integer sein - Prüfen!!
+		String toEmail = (String) execution.getVariable("email");
+		String subject = "Ihre Leihanfrage " + AntragLeihNr + "/Übersendung Leihangebot";
 		String mailtext = "Sehr geehrte/er " + anrede + " " + vorname + " " + nachname + ",\n" 
+		+ "\nvielen Dank für Ihre Teilnahme am Bewerbungsgespräch."
 		+ "\nHiermit teilen wir Ihnen mit, dass wir die gewünschten Artikel im Bestand haben."
 		+ "\nAnbei übersenden wir Ihnen das Leihangebot. Bitte lesen Sie sich dieses Dokument vollständig durch."
 		+ "\nSofern der gewünschte Zeitraum nicht zur Verfügung steht, wird im Dokument ein alternativer Leihzeitraum vorgeschlagen"
@@ -41,7 +42,7 @@ public class MailAngebotVersenden implements JavaDelegate {
 		attachment.setDataHandler(new DataHandler(ds));
 		attachment.setFileName(fileName);
 
-		sendEmail(mailtext, subject, eMailAdresse, ds, fileName, encoding);
+		sendEmail(mailtext, subject, toEmail, ds, fileName, encoding);
 	}
 
 	public void sendEmail(String mailtext, String subject, String toEmail, ByteArrayDataSource ds, String fileName, String encoding) throws EmailException {
