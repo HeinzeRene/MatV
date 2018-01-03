@@ -9,11 +9,9 @@ import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import DataBase.DB_Person;
-
 public class AnlegenKonto{
 
-	private static final Logger L = LoggerFactory.getLogger(DB_Person.class);
+	private static final Logger L = LoggerFactory.getLogger(AnlegenKonto.class);
 	
 	private Connection connection;
 		public void setConnection(Connection connection) {
