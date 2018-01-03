@@ -46,7 +46,7 @@ public class ArquillianTest {
             // add your own classes (could be done one by one as well)
             .addPackages(false, "Projektarbeit.leihVorgang") // not recursive to skip package 'nonarquillian'
             // add process definition
-            .addAsResource("process.bpmn")
+            .addAsResource("leihVorgang.bpmn")
             // now you can add additional stuff required for your test case
     ;
   }
