@@ -142,7 +142,7 @@
     <bpmn:intermediateCatchEvent id="IntermediateCatchEvent_1h0db24" name="Angebot angenommen">
       <bpmn:incoming>SequenceFlow_0za8hbx</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1mm45ij</bpmn:outgoing>
-      <bpmn:messageEventDefinition />
+      <bpmn:messageEventDefinition messageRef="Message_0x3uxnv" />
     </bpmn:intermediateCatchEvent>
     <bpmn:endEvent id="EndEvent_1ra7jqr" name="Leihvorgang fixiert">
       <bpmn:incoming>SequenceFlow_1mm45ij</bpmn:incoming>
