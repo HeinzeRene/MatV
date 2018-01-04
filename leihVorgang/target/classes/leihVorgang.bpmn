@@ -79,7 +79,7 @@
       </bpmn:dataInputAssociation>
     </bpmn:businessRuleTask>
     <bpmn:dataStoreReference id="DataStoreReference_07vztx1" name="Kundendatenbank" />
-    <bpmn:sendTask id="Task_14bndrl" name="Nachfrage über Angebotsannahme">
+    <bpmn:sendTask id="Task_14bndrl" name="Nachfrage über Angebotsannahme" camunda:class="Projektarbeit.MailVersenden.MailNachfrageAngebot">
       <bpmn:incoming>SequenceFlow_15kqjiq</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1v90imf</bpmn:outgoing>
     </bpmn:sendTask>
@@ -109,7 +109,7 @@
       <bpmn:incoming>SequenceFlow_1v90imf</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0p7wvy0</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:serviceTask id="Task_02xrijt" name="Verfügbarkeit des Zeitraumes prüfen" camunda:class="/leihVorgang/src/main/java/Projektarbeit/leihVorgang/VerfZeitraum.java">
+    <bpmn:serviceTask id="Task_02xrijt" name="Verfügbarkeit des Zeitraumes prüfen" camunda:class="Projektarbeit.leihVorgang.VerfZeitraum">
       <bpmn:incoming>SequenceFlow_0ohuo6t</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_11j5co2</bpmn:outgoing>
       <bpmn:property name="__targetRef_placeholder" />
