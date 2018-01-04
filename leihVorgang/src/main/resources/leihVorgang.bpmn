@@ -102,7 +102,7 @@
     <bpmn:intermediateCatchEvent id="IntermediateCatchEvent_0rwhyn4" name="Leihnangebot abgelehnt">
       <bpmn:incoming>SequenceFlow_1lrvlus</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1tyd8wg</bpmn:outgoing>
-      <bpmn:messageEventDefinition />
+      <bpmn:messageEventDefinition messageRef="Message_0x3uxnv" />
     </bpmn:intermediateCatchEvent>
     <bpmn:exclusiveGateway id="ExclusiveGateway_1ug6y8n">
       <bpmn:incoming>SequenceFlow_1jidf35</bpmn:incoming>
@@ -171,6 +171,7 @@
 </bpmn:textAnnotation>
     <bpmn:association id="Association_0iqck4g" sourceRef="DataStoreReference_0r3sjqx" targetRef="TextAnnotation_0h2o7l8" />
   </bpmn:process>
+  <bpmn:message id="Message_0x3uxnv" name="Message_22bdd9j" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0wfjpma">
       <bpmndi:BPMNShape id="Participant_1hkobml_di" bpmnElement="Participant_1hkobml">
