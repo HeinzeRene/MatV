@@ -79,7 +79,7 @@
       </bpmn:dataInputAssociation>
     </bpmn:businessRuleTask>
     <bpmn:dataStoreReference id="DataStoreReference_07vztx1" name="Kundendatenbank" />
-    <bpmn:sendTask id="Task_14bndrl" name="Nachfrage über Angebotsannahme">
+    <bpmn:sendTask id="Task_14bndrl" name="Nachfrage über Angebotsannahme" camunda:class="Projektarbeit.MailVersenden.MailNachfrageAngebot">
       <bpmn:incoming>SequenceFlow_15kqjiq</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1v90imf</bpmn:outgoing>
     </bpmn:sendTask>
